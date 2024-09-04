@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Search Results</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Search Results</h1>
+        <div class="row">
+            {% for mobile in mobiles %}
+                <div class="col-md-4">
+                    <div class="card mb-4">
+                        <img src="{{ mobile.image.url }}" class="card-img-top" alt="{{ mobile.model }}">
+                        <div class="card-body">
+                            <h5 class="card-title">{{ mobile.brand }} {{ mobile.model }}</h5>
+                            <p class="card-text">₹{{ mobile.price }}</p>
+                        </div>
+                    </div>
+                </div>
+            {% empty %}
+                <p>No results found.</p>
+            {% endfor %}
+        </div>
+    </div>
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

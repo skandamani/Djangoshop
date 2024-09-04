@@ -1,0 +1,27 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Product List</title>
+    <link rel="stylesheet" href="{% static 'styles.css' %}">
+</head>
+<body>
+    <h1>Product List</h1>
+    <ul>
+        {% for mobile in mobiles %}
+            <li>
+                <h2>{{ mobile.brand }} - {{ mobile.model }} - {{ mobile.price }}</h2>
+                {% if mobile.image %}
+                    <img src="{{ mobile.image.url }}" alt="{{ mobile.brand }} {{ mobile.model }}" style="max-width: 200px;">
+                {% else %}
+                    <p>No image available.</p>
+                {% endif %}
+            </li>
+        {% empty %}
+            <li>No products available.</li>
+        {% endfor %}
+    </ul>
+</body>
+</html>

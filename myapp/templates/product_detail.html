@@ -1,0 +1,17 @@
+{% extends 'base.html' %}
+
+{% block title %}
+{{ mobile.brand }} {{ mobile.model }} - Details
+{% endblock %}
+
+{% block content %}
+<h1>{{ mobile.brand }} {{ mobile.model }}</h1>
+{% if mobile.image %}
+<img src="{{ mobile.image.url }}" alt="{{ mobile.model }}">
+{% else %}
+<img src="{% static 'default_image.jpg' %}" alt="Default Image">
+{% endif %}
+<p><strong>Price:</strong> ₹{{ mobile.price }}</p>
+<p><strong>Description:</strong> {{ mobile.description }}</p>
+<a href="{% url 'products' %}" class="btn btn-secondary">Back to Products</a>
+{% endblock %}
